@@ -1,58 +1,37 @@
+#include "main.h"
 #include <stdarg.h>
-
-int _putchar(char c)
-{
-	return (write(1, &c, 1));
-}
+#include <stdio.h>
 
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count;
+	int count, i;
+	char *holder;
+	char *(*conversion_func)(va_list);
 	va_start(args, format);
 
 	count = 0;
 
-	while (*format)
+	for (i = 0; format && format[i]; i++)
 	{
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			format++;
-			switch (*format)
+			conversion_func = get_conversion_specifier(format[i + 1]);
+			holder = conversion_func(args);
+			while (*holder)
 			{
-				case 'c':
-					_putchar(va_arg(args, int));
-					count++;
-					break;
-				case 's':
-				{
-					const char *str = va_arg(args, const char *);
-					while (*str)
-					{
-						_putchar(*str);
-						str++;
-						count++;
-					}
-					break;
-				}
-				case '%':
-					_putchar('%');
-					count++;
-					break;
-				default:
-					_putchar('%');
-					_putchar(*format);
-					count += 2;
-					break;
+				_putchar(*holder);
+				holder++;
+				count++;
 			}
+			i++;
 		}
 		else
 		{
-			_putchar(*format);
+			_putchar(format[i]);
 			count++;
 		}
 
-		format++;
 	}
 
 	va_end(args);
