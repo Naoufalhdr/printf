@@ -11,7 +11,6 @@
 int main(void)
 {
 	_printf("Unknown: [%r] [%k]\n");
-	printf("%b\n", 98);
 
 	return (0);
 }
