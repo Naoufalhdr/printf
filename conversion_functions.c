@@ -43,6 +43,7 @@ char *convert_string(va_list s)
 
 /**
  * convert_percent - return a string containing '%' character.
+ * @percent: a va_list, but not used in this function.
  *
  * Return: a pointer to a string containing '%'.
  */
@@ -50,7 +51,7 @@ char *convert_string(va_list s)
 char *convert_percent(va_list percent)
 {
 	(void)percent;
-	return "%";
+	return ("%");
 }
 
 /**

@@ -27,7 +27,7 @@ void _puts(char *buffer, int size)
  * get_conversion_specifier - Get the corresponding conversion function for
  *                            a format specifier.
  * @s: the format specifier char to look for.
- * 
+ *
  * Return: a pointer to the conversion function assiciated with the format
  *         specifier.
  */
