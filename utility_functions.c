@@ -46,7 +46,7 @@ char *(*get_conversion_specifier(char s))(va_list)
 
 	for (i = 0; formats_converter[i].specifier; i++)
 	{
-		if (s == *formats_converter[i].specifier)
+		if (s == *(formats_converter[i].specifier))
 			return (formats_converter[i].function);
 	}
 

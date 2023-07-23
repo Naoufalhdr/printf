@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * convert_char - converts a character argument to a string.
@@ -48,16 +49,8 @@ char *convert_string(va_list s)
 
 char *convert_percent(va_list percent)
 {
-	char *result;
-
-	result = (char *)malloc(2);
-	if (result == NULL)
-		return (NULL);
-
-	result[0] = '%';
-	result[1] = '\0';
-
-	return (result);
+	(void)percent;
+	return "%";
 }
 
 /**
@@ -97,15 +90,14 @@ char *convert_decimal(va_list d)
 	if (result == NULL)
 		return (NULL);
 	/* Convert the decimal integer to a string */
-	if (is_negative)
-		result[0] = '-';
 	for (i = size - 1; i >= 0; i--)
 	{
 		result[i] = (n % 10) + '0';
 		n /= 10;
 	}
-
-	result[i] = '\0';
+	if (is_negative)
+		result[0] = '-';
+	result[size] = '\0';
 
 	return (result);
 }
@@ -144,12 +136,12 @@ char *convert_unsigned(va_list u)
 		return (NULL);
 
 	/* Convert the unsigned integer to a string */
-	for (i = n_len - 1; i >= 0; i--)
+	for (i = n_len - 1; i > 0; i--)
 	{
 		result[i] = (n % 10) + '0';
 		n /= 10;
 	}
-
+	result[0] = (n % 10) + '0';
 	result[n_len] = '\0';
 
 	return (result);

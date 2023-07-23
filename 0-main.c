@@ -1,14 +1,13 @@
 #include "main.h"
+#include <limits.h>
 #include <stdio.h>
 
 int main(void)
 {
-	int count;
+	_printf("Unknown: [%r] [%k]\n");
+	printf("%b\n", 98);
 
-	count =_printf("Hello, %s! I am %c%c%c%c%c\n", "World", 'A', 'I', '!', 'O', 'K');
-	printf("\nNumber of characters printed: %d\n", count);
-
-	return 0;
+	return (0);
 }
 
 

@@ -17,14 +17,19 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			conversion_func = get_conversion_specifier(format[i + 1]);
-			holder = conversion_func(args);
-			while (*holder)
+			if (conversion_func)
 			{
-				_putchar(*holder);
-				holder++;
-				count++;
+				holder = conversion_func(args);
+				while (*holder)
+				{
+					_putchar(*holder);
+					holder++;
+					count++;
+				}
+				i++;
 			}
-			i++;
+			else
+				_putchar(format[i]);
 		}
 		else
 		{
