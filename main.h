@@ -28,6 +28,7 @@ char *convert_string(va_list s);
 char *convert_percent(va_list percent);
 char *convert_decimal(va_list d);
 char *convert_unsigned(va_list u);
+char *convert_binary(va_list b);
 char *(*get_conversion_specifier(char s))(va_list);
 int _putchar(char c);
 
