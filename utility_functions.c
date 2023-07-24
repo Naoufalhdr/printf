@@ -41,6 +41,7 @@ char *(*get_conversion_specifier(char s))(va_list)
 		{"i", convert_decimal},
 		{"u", convert_unsigned},
 		{"b", convert_to_binary},
+		{"o", convert_to_octal},
 		{NULL, NULL}
 	};
 

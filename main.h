@@ -29,6 +29,7 @@ char *convert_percent(va_list percent);
 char *convert_decimal(va_list d);
 char *convert_unsigned(va_list u);
 char *convert_to_binary(va_list b);
+char *convert_to_octal(va_list o);
 char *(*get_conversion_specifier(char s))(va_list);
 int _putchar(char c);
 
