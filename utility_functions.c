@@ -40,7 +40,7 @@ char *(*get_conversion_specifier(char s))(va_list)
 		{"d", convert_decimal},
 		{"i", convert_decimal},
 		{"u", convert_unsigned},
-		{"b", convert_binary},
+		{"b", convert_to_binary},
 		{NULL, NULL}
 	};
 
