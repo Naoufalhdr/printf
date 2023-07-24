@@ -42,6 +42,8 @@ char *(*get_conversion_specifier(char s))(va_list)
 		{"u", convert_unsigned},
 		{"b", convert_to_binary},
 		{"o", convert_to_octal},
+		{"x", convert_to_lower_hex},
+		{"X", convert_to_upper_hex},
 		{NULL, NULL}
 	};
 

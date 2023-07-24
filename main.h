@@ -30,6 +30,8 @@ char *convert_decimal(va_list d);
 char *convert_unsigned(va_list u);
 char *convert_to_binary(va_list b);
 char *convert_to_octal(va_list o);
+char *convert_to_lower_hex(va_list x);
+char *convert_to_upper_hex(va_list X);
 char *(*get_conversion_specifier(char s))(va_list);
 int _putchar(char c);
 
