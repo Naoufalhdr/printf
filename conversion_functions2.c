@@ -48,3 +48,50 @@ char *convert_nstring(va_list S)
 
 	return (result);
 }
+
+/**
+ * convert_memory_address - convert a memory address to a string representation
+ * @p: The va_list containing the memory address.
+ *
+ * Return: a pointer to a string containing the memory address in hexadecimal
+ *         format.
+ */
+char *convert_memory_address(va_list p)
+{
+	unsigned long int addr, temp;
+	int remain, i;
+	char *addr_str;
+	int addr_len = 0;
+
+	addr = (unsigned long int)va_arg(p, void *);
+	temp = addr;
+
+	/* Calculate the lenght of the address */
+	while (temp != 0)
+	{
+		temp /= 16;
+		addr_len++;
+	}
+	addr_len += 2;
+
+	/* Allocate memory for the string containing the address */
+	addr_str = malloc((addr_len + 1) * sizeof(char));
+	if (addr_str == NULL)
+		return (NULL);
+
+	/* Convert the memory address to a string */
+	addr_str[0] = '0';
+	addr_str[1] = 'x';
+	for (i = addr_len - 1; i >= 2; i--)
+	{
+		remain = addr % 16;
+		if (remain < 10)
+			addr_str[i] = remain + '0';
+		else
+			addr_str[i] = remain + 'a' - 10;
+		addr /= 16;
+	}
+	addr_str[addr_len] = '\0';
+
+	return (addr_str);
+}
