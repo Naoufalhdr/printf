@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#define BUFSIZE 1025
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdio.h>
