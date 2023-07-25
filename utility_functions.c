@@ -46,6 +46,7 @@ char *(*get_conversion_specifier(char s))(va_list)
 		{"X", convert_to_upper_hex},
 		{"S", convert_nstring},
 		{"p", convert_memory_address},
+		{"r", reverse_string},
 		{NULL, NULL}
 	};
 

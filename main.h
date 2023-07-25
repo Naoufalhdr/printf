@@ -36,6 +36,7 @@ char *convert_to_lower_hex(va_list x);
 char *convert_to_upper_hex(va_list X);
 char *convert_nstring(va_list S);
 char *convert_memory_address(va_list p);
+char *reverse_string(va_list r);
 char *(*get_conversion_specifier(char s))(va_list);
 int _putchar(char c);
 int _strlen(char *str);

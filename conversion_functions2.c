@@ -95,3 +95,28 @@ char *convert_memory_address(va_list p)
 
 	return (addr_str);
 }
+
+/**
+ * reverse_string - reverses the string.
+ * @r: a va_list containing the argument representing the string to be reversed
+ *
+ * Return: a pointer reversed string.
+ */
+char *reverse_string(va_list r)
+{
+	char *result, *str;
+	int str_len, i;
+
+	str = va_arg(r, char *);
+	str_len = _strlen(str);
+
+	result = malloc((str_len + 1) * sizeof(char));
+	if (result == NULL)
+		return (NULL);
+
+	for (i = 0; i < str_len; i++)
+		result[i] = str[str_len - 1 - i];
+	result[str_len] = '\0';
+
+	return (result);
+}
