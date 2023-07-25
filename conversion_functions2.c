@@ -120,3 +120,36 @@ char *reverse_string(va_list r)
 
 	return (result);
 }
+
+/**
+ * convert_rot13 - applies the rot13 cipher to a given string.
+ * @R: a vaa_list containing the argument representing the string.
+ *
+ * Return: a pointer to the ro13'ed string.
+ */
+char *convert_rot13(va_list R)
+{
+	char *result, *str;
+	int str_len, i;
+
+	str = va_arg(R, char *);
+	str_len = _strlen(str);
+
+	result = malloc((str_len + 1) * sizeof(char));
+	if (result == NULL)
+		return (NULL);
+
+	for (i = 0; i < str_len; i++)
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			result[i] = 'a' + ((str[i] - 'a' + 13) % 26);
+		else if (str[i] >= 'A' && str[i] <= 'Z')
+			result[i] = 'A' + ((str[i] - 'A' + 13) % 26);
+		else
+			result[i] = str[i];
+	}
+	result[str_len] = '\0';
+
+	return (result);
+}
+

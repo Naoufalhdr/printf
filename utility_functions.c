@@ -47,6 +47,7 @@ char *(*get_conversion_specifier(char s))(va_list)
 		{"S", convert_nstring},
 		{"p", convert_memory_address},
 		{"r", reverse_string},
+		{"R", convert_rot13},
 		{NULL, NULL}
 	};
 

@@ -40,6 +40,7 @@ int main(void)
 	_printf("%b\n", -98);
 	_printf("%S\n", "Best\nSchool");
 	_printf("%r\n", "Best School");
+	_printf("%R\n", "Best School");
 
 	return (0);
 }
