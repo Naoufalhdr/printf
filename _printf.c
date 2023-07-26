@@ -49,14 +49,14 @@ int _printf(const char *format, ...)
 						_putchar('+');
 					if (holder[0] != '-' && j == 0 && flag == 2)
 						_putchar(' ');
-					if (holder[0] != '0' && holder[1] != '\0' && flag == 3 && format[i + 1] == 'o')
+					if (holder[0] != '0' && flag == 3 && format[i + 1] == 'o')
 						_putchar('0');
-					if (holder[0] != '0' && holder[1] != '\0' && flag == 3 && format[i + 1] == 'x')
+					if (holder[0] != '0' && flag == 3 && format[i + 1] == 'x')
 					{
 						_putchar('0');
 						_putchar('x');
 					}
-					if (holder[0] != '0' && holder[1] != '\0' && flag == 3 && format[i + 1] == 'X')
+					if (holder[0] != '0' && flag == 3 && format[i + 1] == 'X')
 					{
 						_putchar('0');
 						_putchar('X');

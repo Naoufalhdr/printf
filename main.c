@@ -45,6 +45,9 @@ int main(void)
 	_printf("%#o\n", 25);
 	_printf("%#x\n", 255);
 	_printf("%#X\n", 255);
+	_printf("%#o\n", 1);
+	_printf("%#x\n", 1);
+	_printf("%#X\n", 1);
 
 	return (0);
 }
