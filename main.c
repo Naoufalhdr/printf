@@ -30,7 +30,7 @@ int main(void)
 	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	_printf("Character:[%c]\n", 'H');
 	printf("Character:[%c]\n", 'H');
-	_printf("String:[%s]\n", "I am a string !");
+	_printf("String:[% s]\n", "I am a string !");
 	printf("String:[%s]\n", "I am a string !");
 	_printf("Address:[%p]\n", addr);
 	printf("Address:[%p]\n", addr);
@@ -42,6 +42,9 @@ int main(void)
 	_printf("%S\n", "Best\nSchool");
 	_printf("%r\n", "Best School");
 	_printf("%R\n", "Best School");
+	_printf("%#o\n", 25);
+	_printf("%#x\n", 255);
+	_printf("%#X\n", 255);
 
 	return (0);
 }

@@ -33,6 +33,11 @@ int _printf(const char *format, ...)
 				flag = 2;
 				i++;
 			}
+			if (format[i + 1] == '#')
+			{
+				flag = 3;
+				i++;
+			}
 			conversion_func = get_conversion_specifier(format[i + 1]);
 			if (conversion_func)
 			{
@@ -44,11 +49,23 @@ int _printf(const char *format, ...)
 						_putchar('+');
 					if (holder[0] != '-' && j == 0 && flag == 2)
 						_putchar(' ');
+					if (holder[0] != '0' && holder[1] != '\0' && flag == 3 && format[i + 1] == 'o')
+						_putchar('0');
+					if (holder[0] != '0' && holder[1] != '\0' && flag == 3 && format[i + 1] == 'x')
+					{
+						_putchar('0');
+						_putchar('x');
+					}
+					if (holder[0] != '0' && holder[1] != '\0' && flag == 3 && format[i + 1] == 'X')
+					{
+						_putchar('0');
+						_putchar('X');
+					}
 					_putchar(holder[j]);
 					j++;
 					count++;
+					flag = 0;
 				}
-				flag = 0;
 				i++;
 			}
 			else
