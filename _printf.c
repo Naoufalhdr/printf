@@ -12,7 +12,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count, i;
+	int count, i, j, flag;
 	char *holder;
 	char *(*conversion_func)(va_list);
 
@@ -23,16 +23,25 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '+')
+			{
+				flag = 1;
+				i++;
+			}
 			conversion_func = get_conversion_specifier(format[i + 1]);
 			if (conversion_func)
 			{
 				holder = conversion_func(args);
-				while (*holder)
+				j = 0;
+				while (holder[j])
 				{
-					_putchar(*holder);
-					holder++;
+					if (holder[0] != '-' && j == 0 && flag == 1 && (format[i + 1] == 'd' || format[i + 1] == 'i'))
+						_putchar('+');
+					_putchar(holder[j]);
+					j++;
 					count++;
 				}
+				flag = 0;
 				i++;
 			}
 			else

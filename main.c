@@ -19,6 +19,7 @@ int main(void)
 	len2 = printf("Let's try to printf a simple sentence.\n");
 	_printf("Length:[%d, %i]\n", len, len);
 	printf("Length:[%d, %i]\n", len2, len2);
+	_printf("Positive:[%+d, %+i]\n", 762534, 762534);
 	_printf("Negative:[%d]\n", -762534);
 	printf("Negative:[%d]\n", -762534);
 	_printf("Unsigned:[%u]\n", ui);
