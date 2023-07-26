@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 				{
 					if (holder[0] != '-' && j == 0 && flag == 1 && (format[i + 1] == 'd' || format[i + 1] == 'i'))
 						_putchar('+');
-					if (holder[0] != '-' && j == 0 && flag == 2 && (format[i + 1] == 'd' || format[i + 1] == 'i'))
+					if (holder[0] != '-' && j == 0 && flag == 2)
 						_putchar(' ');
 					_putchar(holder[j]);
 					j++;
