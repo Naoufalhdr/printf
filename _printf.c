@@ -28,6 +28,11 @@ int _printf(const char *format, ...)
 				flag = 1;
 				i++;
 			}
+			if (format[i + 1] == ' ')
+			{
+				flag = 2;
+				i++;
+			}
 			conversion_func = get_conversion_specifier(format[i + 1]);
 			if (conversion_func)
 			{
@@ -37,6 +42,8 @@ int _printf(const char *format, ...)
 				{
 					if (holder[0] != '-' && j == 0 && flag == 1 && (format[i + 1] == 'd' || format[i + 1] == 'i'))
 						_putchar('+');
+					if (holder[0] != '-' && j == 0 && flag == 2 && (format[i + 1] == 'd' || format[i + 1] == 'i'))
+						_putchar(' ');
 					_putchar(holder[j]);
 					j++;
 					count++;
