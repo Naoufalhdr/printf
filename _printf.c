@@ -23,19 +23,14 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == '+')
+			while (format[i + 1] == '+' || format[i + 1] == ' ' || format[i + 1] == '#')
 			{
-				flag = 1;
-				i++;
-			}
-			if (format[i + 1] == ' ')
-			{
-				flag = 2;
-				i++;
-			}
-			if (format[i + 1] == '#')
-			{
-				flag = 3;
+				if (format[i + 1] == '+')
+					flag = 1;
+				if (format[i + 1] == ' ')
+					flag = 2;
+				if (format[i + 1] == '#')
+					flag = 3;
 				i++;
 			}
 			conversion_func = get_conversion_specifier(format[i + 1]);

@@ -34,7 +34,7 @@ char *convert_string(va_list s)
 
 	result = va_arg(s, char *);
 	if (result == NULL)
-		return ("(nil)");
+		return ("(null)");
 	return (result);
 }
 
